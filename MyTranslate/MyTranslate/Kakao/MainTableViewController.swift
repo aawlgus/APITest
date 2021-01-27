@@ -17,6 +17,7 @@ class MainTableViewController: UITableViewController {
     
     @IBAction func translate(_ sender: Any) {
         guard let query = koreanTextView.text else {return}
+        self.englishTextView.text = ""
         let urlString = "https://dapi.kakao.com/v2/translation/translate?query=\(query)&src_lang=kr&target_lang=en"
         let urlWithPercentEscapes = urlString.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!
         let url = URL(string: urlWithPercentEscapes)
@@ -46,6 +47,9 @@ class MainTableViewController: UITableViewController {
                 if let list = json.translatedText {
                     for line in list {
                         print(line)
+                        DispatchQueue.main.async {
+                            self.englishTextView.text += "\(line[0]) \n"
+                        }
                     }
                 }
             } catch {

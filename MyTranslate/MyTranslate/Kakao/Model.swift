@@ -8,29 +8,10 @@
 import Foundation
 
 struct Translated: Codable {
-    //let translatedText: [TranslatedText]?
     let translatedText: [[String]]?
+    
+    enum CodingKeys: String, CodingKey {
+        case translatedText = "translated_text"
+    }
 }
 
-struct TranslatedText: Codable {
-    let objectText: [Line]?
-}
-
-struct Line: Codable {
-    let textLine: String?
-}
-
-enum CodingKeys: String, CodingKey {
-    case translatedText = "translated_text"
-}
-
-/*
- { (Translated)
-    translated_text (translatedText): [
-        [ "Kakaka" ] (TranslatedText)
-        [ "Kakao Talk" ]
-    ]
- }
- 
- 
- */

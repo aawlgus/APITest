@@ -1,0 +1,6 @@
+framework module Pods_MyTranslate {
+  umbrella header "Pods-MyTranslate-umbrella.h"
+
+  export *
+  module * { export * }
+}

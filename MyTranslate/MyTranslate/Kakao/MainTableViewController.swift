@@ -12,7 +12,7 @@ class MainTableViewController: UITableViewController {
     @IBOutlet weak var koreanTextView: UITextView!
     @IBOutlet weak var englishTextView: UITextView!
     
-    let apiKey = "898e6b6efa37d9a20f92d0dd6903889c"
+    let apiKey = ""
     var dataStructure: Translated?
     
     @IBAction func translate(_ sender: Any) {

@@ -10,8 +10,8 @@ import UIKit
 class PapagoResultViewController: UIViewController {
     
     var queryText: String?
-    let clientID = "rhQRvfWQAJMG6zEDdYMG"
-    let clientSecret = "4PwE2iNgD0"
+    let clientID = ""
+    let clientSecret = ""
     
     @IBOutlet weak var outputText: UITextView!
     @IBOutlet weak var outputLabel: UILabel!

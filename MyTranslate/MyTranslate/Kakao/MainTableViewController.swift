@@ -10,16 +10,21 @@ import Alamofire
 
 class MainTableViewController: UITableViewController {
     
+    let apiKey = "898e6b6efa37d9a20f92d0dd6903889c"
+    
     @IBOutlet weak var koreanTextView: UITextView!
     @IBOutlet weak var englishTextView: UITextView!
     
-    let apiKey = "898e6b6efa37d9a20f92d0dd6903889c"
-    var dataStructure: Translated?
+    @IBOutlet weak var searchLangBtn: UIButton!
+    @IBOutlet weak var targetLangBtn: UIButton!
     
+    var searchLang: String = "kr"
+    var targetLang: String = "en"
+   
     @IBAction func translate(_ sender: Any) {
         guard let query = koreanTextView.text else {return}
         self.englishTextView.text = ""
-        let urlString = "https://dapi.kakao.com/v2/translation/translate?query=\(query)&src_lang=kr&target_lang=en"
+        let urlString = "https://dapi.kakao.com/v2/translation/translate?query=\(query)&src_lang=\(searchLang)&target_lang=\(targetLang)"
         let urlWithPercentEscapes = urlString.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!
         let url = URL(string: urlWithPercentEscapes)
         
@@ -89,10 +94,16 @@ class MainTableViewController: UITableViewController {
     }
     
     @IBAction func translateByAlamofire(_ sender: Any) {
+        
+        let ud = UserDefaults.standard
+        let lang = ud.string(forKey: "searchLang")!
+        self.searchLang = changeLangType(lang: lang)
+        print(searchLang)
+        
         guard let query = koreanTextView.text else {return}
-        self.englishTextView.text = ""
+        self.koreanTextView.resignFirstResponder()
         let url = "https://dapi.kakao.com/v2/translation/translate"
-        let parameters = ["query" : query, "src_lang" : "kr", "target_lang" : "en"]
+        let parameters = ["query" : query, "src_lang" : searchLang, "target_lang" : targetLang]
         let headers: HTTPHeaders = ["Authorization" : "KakaoAK \(apiKey)"]
         AF.request(url, method: .post, parameters: parameters, encoder: URLEncodedFormParameterEncoder(destination: .queryString), headers: headers).validate().responseJSON{ response in
             //debugPrint(response)
@@ -139,6 +150,15 @@ class MainTableViewController: UITableViewController {
         koreanTextView.delegate = self
 
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print(#function)
+        
+        let ud = UserDefaults.standard
+        let lang = ud.string(forKey: "searchLang")
+        self.searchLangBtn.setTitle(lang, for: .normal)
+        self.targetLangBtn.setTitle(targetLang, for: .normal)
+    }
 
     // MARK: - Table view data source
 
@@ -150,6 +170,17 @@ class MainTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return 4
+    }
+    
+    //override func performSegue(withIdentifier identifier: String, sender: Any?) {
+    //    self.performSegue(withIdentifier: "srcSegue", sender: self)
+    //}
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let dest = segue.destination
+        guard let svc = dest as? SrcLangViewController else {
+            return
+        }
+        svc.selectedLang = self.searchLang
     }
 
     
@@ -184,6 +215,50 @@ extension MainTableViewController: UITextViewDelegate {
         alert.addAction(okAction)
         
         present(alert, animated: true, completion: nil)
+    }
+    
+    func changeLangType(lang:String) -> String {
+        var resultLang: String?
+        if lang == "한국어" {
+            resultLang = "ko"
+        } else if lang == "영어" {
+            resultLang = "en"
+        } else if lang == "일본어" {
+            resultLang = "jp"
+        } else if lang == "중국어" {
+            resultLang = "cn"
+        } else if lang == "베트남어" {
+            resultLang = "vi"
+        } else if lang == "인도네시아어" {
+            resultLang = "id"
+        } else if lang == "아랍어" {
+            resultLang = "ar"
+        } else if lang == "뱅갈어" {
+            resultLang = "bn"
+        } else if lang == "독일어" {
+            resultLang = "de"
+        } else if lang == "스페인어" {
+            resultLang = "es"
+        } else if lang == "프랑스어" {
+            resultLang = "fr"
+        } else if lang == "힌디어" {
+            resultLang = "hi"
+        } else if lang == "이탈리아어" {
+            resultLang = "it"
+        } else if lang == "말레이시아어" {
+            resultLang = "ms"
+        } else if lang == "네덜란드어" {
+            resultLang = "nl"
+        } else if lang == "포르투갈어" {
+            resultLang = "pt"
+        } else if lang == "러시아어" {
+            resultLang = "ru"
+        } else if lang == "태국어" {
+            resultLang = "th"
+        } else if lang == "터키어" {
+            resultLang = "tr"
+        }
+        return resultLang!
     }
     
 }

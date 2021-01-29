@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Kakao Test-->
+        <!--My Translate-->
         <scene sceneID="4bW-3J-PRZ">
             <objects>
                 <tableViewController id="cF4-AO-GSW" customClass="MainTableViewController" customModule="MyTranslate" customModuleProvider="target" sceneMemberID="viewController">
@@ -32,21 +32,21 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B9I-76-6jp">
-                                                    <rect key="frame" x="195" y="29" width="24" height="22"/>
-                                                    <state key="normal" image="arrowshape.zigzag.forward" catalog="system"/>
+                                                    <rect key="frame" x="197" y="29" width="20" height="22"/>
+                                                    <state key="normal" image="arrow.right" catalog="system"/>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nss-SM-ThJ">
-                                                    <rect key="frame" x="70" y="23.5" width="45" height="33"/>
+                                                    <rect key="frame" x="72" y="23.5" width="45" height="33"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <state key="normal" title="한국어">
                                                         <color key="titleColor" systemColor="labelColor"/>
                                                     </state>
                                                     <connections>
-                                                        <segue destination="Mng-k2-DbW" kind="presentation" id="Z6P-3T-m1u"/>
+                                                        <segue destination="Mng-k2-DbW" kind="presentation" modalPresentationStyle="fullScreen" id="1cX-fV-4VY"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VdL-vC-4vL">
-                                                    <rect key="frame" x="299" y="23.5" width="30" height="33"/>
+                                                    <rect key="frame" x="297" y="23.5" width="30" height="33"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <state key="normal" title="영어">
                                                         <color key="titleColor" systemColor="labelColor"/>
@@ -174,12 +174,14 @@
                             <outlet property="delegate" destination="cF4-AO-GSW" id="jgc-T7-s4H"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Kakao Test" id="OKH-vw-wUN">
+                    <navigationItem key="navigationItem" title="My Translate" id="OKH-vw-wUN">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="person.circle" catalog="system" id="eTx-5b-MHD"/>
                     </navigationItem>
                     <connections>
                         <outlet property="englishTextView" destination="UQ4-JX-lIN" id="F94-Sc-WFq"/>
                         <outlet property="koreanTextView" destination="FqA-Pb-rz4" id="vSd-rz-Egb"/>
+                        <outlet property="searchLangBtn" destination="Nss-SM-ThJ" id="8D7-6F-ibE"/>
+                        <outlet property="targetLangBtn" destination="VdL-vC-4vL" id="iwI-TU-Z8X"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NeJ-WN-8WQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -191,11 +193,11 @@
             <objects>
                 <viewController id="2Ig-Yi-izM" customClass="SrcLangViewController" customModule="MyTranslate" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Xry-bH-8Jw">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="45" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="clo-7N-nrd">
-                                <rect key="frame" x="0.0" y="56" width="414" height="752"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="srcCell" textLabel="6kU-zs-Off" style="IBUITableViewCellStyleDefault" id="FIb-hG-I06">
@@ -250,7 +252,7 @@
         <!--이 언어로 번역-->
         <scene sceneID="m8R-2t-8bM">
             <objects>
-                <viewController id="BOy-Dt-Inh" customClass="TargetLangViewController" customModule="MyTranslate" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TargetVC" id="BOy-Dt-Inh" customClass="TargetLangViewController" customModule="MyTranslate" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7ZT-c8-B5l">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -388,7 +390,7 @@
         <scene sceneID="eV3-OT-Arc">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6sd-wV-xdP" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="홈" image="homekit" catalog="system" id="lj9-jw-wN3"/>
+                    <tabBarItem key="tabBarItem" title="홈" image="house" catalog="system" id="lj9-jw-wN3"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="mTP-35-UBz">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -442,10 +444,10 @@
         <!--Navigation Controller-->
         <scene sceneID="MX1-zx-FXc">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Mng-k2-DbW" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="SrcVC" automaticallyAdjustsScrollViewInsets="NO" id="Mng-k2-DbW" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Qyc-9Y-MHg">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -477,8 +479,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrowshape.zigzag.forward" catalog="system" width="128" height="93"/>
-        <image name="homekit" catalog="system" width="128" height="106"/>
+        <image name="arrow.right" catalog="system" width="128" height="98"/>
+        <image name="house" catalog="system" width="128" height="106"/>
         <image name="person.circle" catalog="system" width="128" height="121"/>
         <image name="speaker" catalog="system" width="128" height="124"/>
         <systemColor name="labelColor">

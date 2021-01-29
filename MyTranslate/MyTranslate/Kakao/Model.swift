@@ -15,3 +15,13 @@ struct Translated: Codable {
     }
 }
 
+class Language {
+    var srcLang: String?
+    var tgtLang: String?
+    
+    init(srcLang: String, tgtLang: String) {
+        self.srcLang = srcLang
+        self.tgtLang = tgtLang
+    }
+}
+

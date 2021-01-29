@@ -67,10 +67,10 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="224"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="텍스트 입력" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="FqA-Pb-rz4">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="내용을 입력하세요. " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="FqA-Pb-rz4">
                                                     <rect key="frame" x="20" y="11" width="374" height="202"/>
                                                     <color key="backgroundColor" systemColor="systemGray4Color"/>
-                                                    <color key="textColor" systemColor="labelColor"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" returnKeyType="done"/>
                                                 </textView>
@@ -142,7 +142,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="224"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="텍스트 입력" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UQ4-JX-lIN">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UQ4-JX-lIN">
                                                     <rect key="frame" x="20" y="11" width="374" height="202"/>
                                                     <color key="backgroundColor" systemColor="systemGray4Color"/>
                                                     <color key="textColor" systemColor="labelColor"/>

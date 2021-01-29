@@ -126,6 +126,7 @@ class MainTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        koreanTextView.delegate = self
 
     }
 
@@ -143,4 +144,32 @@ class MainTableViewController: UITableViewController {
 
     
 
+}
+
+extension MainTableViewController: UITextViewDelegate {
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        textViewSetup()
+    }
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if koreanTextView.text == "" {
+            textViewSetup()
+        }
+    }
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if text == "\n" {
+            koreanTextView.resignFirstResponder()
+        }
+        return true
+    }
+    
+    // TextView Placeholder 셋업
+    func textViewSetup() {
+        if koreanTextView.text == "내용을 입력하세요. " {
+            koreanTextView.text = ""
+            koreanTextView.textColor = UIColor.black
+        } else if koreanTextView.text == "" {
+            koreanTextView.text = "내용을 입력하세요. "
+            koreanTextView.textColor = UIColor.lightGray
+        }
+    }
 }

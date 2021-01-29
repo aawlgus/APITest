@@ -42,7 +42,7 @@
                                                         <color key="titleColor" systemColor="labelColor"/>
                                                     </state>
                                                     <connections>
-                                                        <segue destination="2Ig-Yi-izM" kind="presentation" id="Umc-d9-X8P"/>
+                                                        <segue destination="Mng-k2-DbW" kind="presentation" id="Z6P-3T-m1u"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VdL-vC-4vL">
@@ -52,7 +52,7 @@
                                                         <color key="titleColor" systemColor="labelColor"/>
                                                     </state>
                                                     <connections>
-                                                        <segue destination="BOy-Dt-Inh" kind="presentation" id="E47-il-hbO"/>
+                                                        <segue destination="hS8-CD-Vcr" kind="presentation" id="kNq-3v-hkz"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -186,7 +186,7 @@
             </objects>
             <point key="canvasLocation" x="3582.608695652174" y="83.705357142857139"/>
         </scene>
-        <!--Src Lang View Controller-->
+        <!--이 언어로 입력-->
         <scene sceneID="RI6-i9-qCf">
             <objects>
                 <viewController id="2Ig-Yi-izM" customClass="SrcLangViewController" customModule="MyTranslate" customModuleProvider="target" sceneMemberID="viewController">
@@ -195,7 +195,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="45" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="clo-7N-nrd">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                <rect key="frame" x="0.0" y="56" width="414" height="752"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="srcCell" textLabel="6kU-zs-Off" style="IBUITableViewCellStyleDefault" id="FIb-hG-I06">
@@ -227,15 +227,27 @@
                             <constraint firstItem="clo-7N-nrd" firstAttribute="leading" secondItem="GcX-rF-Ha5" secondAttribute="leading" id="dNH-DG-wEN"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="이 언어로 입력" id="Zge-1J-krV">
+                        <barButtonItem key="leftBarButtonItem" title="취소" id="29g-0t-GjI">
+                            <connections>
+                                <action selector="close:" destination="2Ig-Yi-izM" id="RbB-Py-Aca"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="완료" id="Gsm-2w-8hO">
+                            <connections>
+                                <action selector="done:" destination="2Ig-Yi-izM" id="KMH-bB-lbY"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="clo-7N-nrd" id="vHV-eV-zs5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yfL-1o-0TE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4520" y="-303"/>
+            <point key="canvasLocation" x="5241" y="-301"/>
         </scene>
-        <!--Target Lang View Controller-->
+        <!--이 언어로 번역-->
         <scene sceneID="m8R-2t-8bM">
             <objects>
                 <viewController id="BOy-Dt-Inh" customClass="TargetLangViewController" customModule="MyTranslate" customModuleProvider="target" sceneMemberID="viewController">
@@ -244,15 +256,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SkQ-cg-Km3">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                <rect key="frame" x="0.0" y="56" width="414" height="752"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="targetCell" id="IHO-SR-9Jb">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="targetCell" textLabel="N8b-bV-ys0" style="IBUITableViewCellStyleDefault" id="IHO-SR-9Jb">
                                         <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="IHO-SR-9Jb" id="kqg-Nm-Luj">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="N8b-bV-ys0">
+                                                    <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
@@ -267,13 +288,25 @@
                             <constraint firstItem="SkQ-cg-Km3" firstAttribute="top" secondItem="FOp-HH-27d" secondAttribute="top" id="htw-K9-TQD"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="이 언어로 번역" id="KWR-70-qSQ">
+                        <barButtonItem key="leftBarButtonItem" title="취소" id="Xug-Et-4YQ">
+                            <connections>
+                                <action selector="close:" destination="BOy-Dt-Inh" id="HUo-ha-GoI"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="완료" id="gFa-U5-mY8">
+                            <connections>
+                                <action selector="done:" destination="BOy-Dt-Inh" id="1Vs-V0-8HQ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="SkQ-cg-Km3" id="eMW-o1-w8A"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dic-jH-qxx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4519" y="369"/>
+            <point key="canvasLocation" x="5241" y="369"/>
         </scene>
         <!--Papago Test-->
         <scene sceneID="lKY-yS-m6H">
@@ -405,6 +438,42 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DCm-mC-1XG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1761" y="-599"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="MX1-zx-FXc">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Mng-k2-DbW" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Qyc-9Y-MHg">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="2Ig-Yi-izM" kind="relationship" relationship="rootViewController" id="uop-Yo-s6y"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FG9-wO-LxA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4519" y="-301"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Gh8-e0-Snu">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hS8-CD-Vcr" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="PSR-w6-4Qu">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BOy-Dt-Inh" kind="relationship" relationship="rootViewController" id="8H2-9i-EtC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UnC-VT-Ftm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4518.840579710145" y="368.97321428571428"/>
         </scene>
     </scenes>
     <resources>

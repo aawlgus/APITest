@@ -11,6 +11,14 @@ class TargetLangViewController: UIViewController, UITableViewDelegate, UITableVi
     
     @IBOutlet weak var tableView: UITableView!
     
+    @IBAction func close(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func done(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     let langList = ["한국어", "영어", "일본어", "중국어", "베트남어", "인도네시아어", "아랍어", "뱅갈어", "독일어", "스페인어", "프랑스어", "힌디어", "이탈리아어", "말레이시아어", "네덜란드어", "포르투갈어", "러시아어", "태국어", "터키어"]
     let cellIdentifier = "targetCell"
 

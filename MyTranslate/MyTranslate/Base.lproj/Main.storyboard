@@ -67,15 +67,22 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="224"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="텍스트 입력" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="FqA-Pb-rz4">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="텍스트 입력" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="FqA-Pb-rz4">
                                                     <rect key="frame" x="20" y="11" width="374" height="202"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" systemColor="systemGray4Color"/>
                                                     <color key="textColor" systemColor="labelColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" returnKeyType="done"/>
                                                 </textView>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="FqA-Pb-rz4" firstAttribute="top" secondItem="X6m-RC-yT1" secondAttribute="topMargin" id="F7I-Hs-GPl"/>
+                                                <constraint firstItem="FqA-Pb-rz4" firstAttribute="bottom" secondItem="X6m-RC-yT1" secondAttribute="bottomMargin" id="GVF-FO-efU"/>
+                                                <constraint firstItem="FqA-Pb-rz4" firstAttribute="centerY" secondItem="X6m-RC-yT1" secondAttribute="centerY" id="axA-jD-OFx"/>
+                                                <constraint firstItem="FqA-Pb-rz4" firstAttribute="leading" secondItem="X6m-RC-yT1" secondAttribute="leadingMargin" id="cad-3s-HVI"/>
+                                                <constraint firstItem="FqA-Pb-rz4" firstAttribute="centerX" secondItem="X6m-RC-yT1" secondAttribute="centerX" id="hcZ-Kr-EPP"/>
+                                                <constraint firstItem="FqA-Pb-rz4" firstAttribute="trailing" secondItem="X6m-RC-yT1" secondAttribute="trailingMargin" id="qAQ-GN-mrf"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="51" id="M9k-WW-2Pk">
@@ -85,25 +92,47 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="51"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3QH-Eh-P45">
-                                                    <rect key="frame" x="313" y="11" width="52" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="번역하기"/>
-                                                    <connections>
-                                                        <action selector="translate:" destination="cF4-AO-GSW" eventType="touchUpInside" id="baM-lv-aR2"/>
-                                                    </connections>
-                                                </button>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uak-oS-zDE">
-                                                    <rect key="frame" x="58" y="15" width="18" height="22"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" image="speaker" catalog="system"/>
-                                                </button>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jdA-iT-b2j">
-                                                    <rect key="frame" x="197" y="15" width="21" height="23"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" image="doc.on.doc" catalog="system"/>
-                                                </button>
+                                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GK8-Iz-BuT">
+                                                    <rect key="frame" x="20" y="0.0" width="374" height="51"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uak-oS-zDE">
+                                                            <rect key="frame" x="0.0" y="0.0" width="100" height="51"/>
+                                                            <state key="normal" image="speaker" catalog="system"/>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3QH-Eh-P45">
+                                                            <rect key="frame" x="100" y="0.0" width="145" height="51"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="145" id="Dyo-hX-j4E"/>
+                                                            </constraints>
+                                                            <state key="normal" title="번역하기"/>
+                                                            <connections>
+                                                                <action selector="translate:" destination="cF4-AO-GSW" eventType="touchUpInside" id="baM-lv-aR2"/>
+                                                            </connections>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jdA-iT-b2j">
+                                                            <rect key="frame" x="245" y="0.0" width="129" height="51"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                            <state key="normal" title="번역하기(Alamofire)">
+                                                                <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </state>
+                                                            <connections>
+                                                                <action selector="translateByAlamofire:" destination="cF4-AO-GSW" eventType="touchUpInside" id="hGN-o5-Jn2"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="3QH-Eh-P45" firstAttribute="leading" secondItem="GK8-Iz-BuT" secondAttribute="leading" constant="100" id="AiB-d6-3xZ"/>
+                                                        <constraint firstItem="Uak-oS-zDE" firstAttribute="leading" secondItem="GK8-Iz-BuT" secondAttribute="leading" id="XIE-9N-LnS"/>
+                                                    </constraints>
+                                                </stackView>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="GK8-Iz-BuT" firstAttribute="leading" secondItem="YU4-7M-chz" secondAttribute="leading" constant="20" id="YXh-j3-oyu"/>
+                                                <constraint firstItem="GK8-Iz-BuT" firstAttribute="top" secondItem="YU4-7M-chz" secondAttribute="top" id="hBj-E8-qnP"/>
+                                                <constraint firstAttribute="trailing" secondItem="GK8-Iz-BuT" secondAttribute="trailing" constant="20" id="hC5-mi-DqN"/>
+                                                <constraint firstAttribute="bottom" secondItem="GK8-Iz-BuT" secondAttribute="bottom" id="hi7-8g-Hkl"/>
+                                                <constraint firstItem="GK8-Iz-BuT" firstAttribute="centerX" secondItem="YU4-7M-chz" secondAttribute="centerX" id="vxr-5w-buh"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="224" id="naZ-nb-pn2">
@@ -113,15 +142,22 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="224"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="텍스트 입력" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UQ4-JX-lIN">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="텍스트 입력" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UQ4-JX-lIN">
                                                     <rect key="frame" x="20" y="11" width="374" height="202"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" systemColor="systemGray4Color"/>
                                                     <color key="textColor" systemColor="labelColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="UQ4-JX-lIN" firstAttribute="trailing" secondItem="pmV-vU-bv3" secondAttribute="trailingMargin" id="3Ku-K6-hoB"/>
+                                                <constraint firstItem="UQ4-JX-lIN" firstAttribute="centerY" secondItem="pmV-vU-bv3" secondAttribute="centerY" id="4VO-10-4k8"/>
+                                                <constraint firstItem="UQ4-JX-lIN" firstAttribute="bottom" secondItem="pmV-vU-bv3" secondAttribute="bottomMargin" id="O1H-se-Sc9"/>
+                                                <constraint firstItem="UQ4-JX-lIN" firstAttribute="leading" secondItem="pmV-vU-bv3" secondAttribute="leadingMargin" id="gGO-Q9-mwH"/>
+                                                <constraint firstItem="UQ4-JX-lIN" firstAttribute="top" secondItem="pmV-vU-bv3" secondAttribute="topMargin" id="mAt-1E-eHo"/>
+                                                <constraint firstItem="UQ4-JX-lIN" firstAttribute="centerX" secondItem="pmV-vU-bv3" secondAttribute="centerX" id="qSn-4M-Zat"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -278,7 +314,6 @@
     </scenes>
     <resources>
         <image name="arrowshape.zigzag.forward" catalog="system" width="128" height="93"/>
-        <image name="doc.on.doc" catalog="system" width="116" height="128"/>
         <image name="homekit" catalog="system" width="128" height="106"/>
         <image name="person.circle" catalog="system" width="128" height="121"/>
         <image name="speaker" catalog="system" width="128" height="124"/>

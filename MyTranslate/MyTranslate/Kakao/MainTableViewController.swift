@@ -6,13 +6,14 @@
 //
 
 import UIKit
+import Alamofire
 
 class MainTableViewController: UITableViewController {
     
     @IBOutlet weak var koreanTextView: UITextView!
     @IBOutlet weak var englishTextView: UITextView!
     
-    let apiKey = ""
+    let apiKey = "898e6b6efa37d9a20f92d0dd6903889c"
     var dataStructure: Translated?
     
     @IBAction func translate(_ sender: Any) {
@@ -86,6 +87,42 @@ class MainTableViewController: UITableViewController {
         task.resume()
         
     }
+    
+    @IBAction func translateByAlamofire(_ sender: Any) {
+        guard let query = koreanTextView.text else {return}
+        self.englishTextView.text = ""
+        let url = "https://dapi.kakao.com/v2/translation/translate"
+        let parameters = ["query" : query, "src_lang" : "kr", "target_lang" : "en"]
+        let headers: HTTPHeaders = ["Authorization" : "KakaoAK \(apiKey)"]
+        AF.request(url, method: .post, parameters: parameters, encoder: URLEncodedFormParameterEncoder(destination: .queryString), headers: headers).validate().responseJSON{ response in
+            //debugPrint(response)
+            switch response.result {
+            case .success(let value):
+                //print("Validation Successful")
+                //print(value)
+                do {
+                    let data = try JSONSerialization.data(withJSONObject: value, options: .prettyPrinted)
+                    let json = try JSONDecoder().decode(Translated.self, from: data)
+                    print("json: \(json)")
+                    if let list = json.translatedText {
+                        for line in list {
+                            print("line: \(line)")
+                            DispatchQueue.main.async {
+                                self.englishTextView.text += "\(line[0]) \n"
+                            }
+                        }
+                    }
+                } catch {
+                    print(error.localizedDescription)
+                }
+            case let .failure(error):
+                print(error)
+            }
+            
+        }
+        
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

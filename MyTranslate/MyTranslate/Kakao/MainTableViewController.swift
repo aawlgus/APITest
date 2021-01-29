@@ -108,7 +108,12 @@ class MainTableViewController: UITableViewController {
                         for line in list {
                             print("line: \(line)")
                             DispatchQueue.main.async {
-                                self.englishTextView.text += "\(line[0]) \n"
+                                if line == [] {
+                                    print("no data")
+                                    self.alert(message: "입력값이 존재하지 않습니다.")
+                                } else {
+                                    self.englishTextView.text += "\(line[0]) \n"
+                                }
                             }
                         }
                     }
@@ -116,7 +121,12 @@ class MainTableViewController: UITableViewController {
                     print(error.localizedDescription)
                 }
             case let .failure(error):
-                print(error)
+                DispatchQueue.main.async {
+                    self.alert(message: "입력값이 존재하지 않습니다.")
+                }
+                print("error: \(error)")
+                //print("result: \(response.result)")
+            
             }
             
         }
@@ -155,12 +165,6 @@ extension MainTableViewController: UITextViewDelegate {
             textViewSetup()
         }
     }
-    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        if text == "\n" {
-            koreanTextView.resignFirstResponder()
-        }
-        return true
-    }
     
     // TextView Placeholder 셋업
     func textViewSetup() {
@@ -172,4 +176,14 @@ extension MainTableViewController: UITextViewDelegate {
             koreanTextView.textColor = UIColor.lightGray
         }
     }
+    
+    func alert(title: String = "Alert", message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(okAction)
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
 }

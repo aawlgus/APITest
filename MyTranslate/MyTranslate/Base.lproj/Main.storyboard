@@ -175,7 +175,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="My Translate" id="OKH-vw-wUN">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="person.circle" catalog="system" id="eTx-5b-MHD"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="person.circle" catalog="system" id="eTx-5b-MHD">
+                            <connections>
+                                <segue destination="3LI-bY-paI" kind="presentation" id="RSv-ZA-H5F"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="englishTextView" destination="UQ4-JX-lIN" id="F94-Sc-WFq"/>
@@ -247,7 +251,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yfL-1o-0TE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5241" y="-301"/>
+            <point key="canvasLocation" x="5258" y="-463"/>
         </scene>
         <!--이 언어로 번역-->
         <scene sceneID="m8R-2t-8bM">
@@ -308,7 +312,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dic-jH-qxx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6150.7246376811599" y="368.97321428571428"/>
+            <point key="canvasLocation" x="5909" y="230"/>
         </scene>
         <!--Papago Test-->
         <scene sceneID="lKY-yS-m6H">
@@ -453,6 +457,65 @@
             </objects>
             <point key="canvasLocation" x="3581.1594202898555" y="947.54464285714278"/>
         </scene>
+        <!--Login View Controller-->
+        <scene sceneID="g50-w4-LX2">
+            <objects>
+                <viewController id="3LI-bY-paI" customClass="LoginViewController" customModule="MyTranslate" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IcF-0z-w3I">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7tI-QJ-aM1">
+                                <rect key="frame" x="138" y="180" width="138" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="네이버 아이디로 로그인"/>
+                                <connections>
+                                    <action selector="loginBtn:" destination="3LI-bY-paI" eventType="touchUpInside" id="jq8-lA-XoG"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Cw-LD-Lka">
+                                <rect key="frame" x="186" y="411" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nEa-Oc-wtd">
+                                <rect key="frame" x="186" y="468" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rsk-wo-Jb7">
+                                <rect key="frame" x="186" y="534" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gb1-tm-Kpm">
+                                <rect key="frame" x="181" y="242" width="52" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="로그아웃"/>
+                                <connections>
+                                    <action selector="logoutBtn:" destination="3LI-bY-paI" eventType="touchUpInside" id="TSs-gF-ToD"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="uqF-Mc-Z4D"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <connections>
+                        <outlet property="emailLabel" destination="nEa-Oc-wtd" id="D37-Za-XM4"/>
+                        <outlet property="nameLabel" destination="3Cw-LD-Lka" id="5Hl-zC-tUS"/>
+                        <outlet property="nicknameLabel" destination="rsk-wo-Jb7" id="rb9-jg-Z48"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2LL-5W-UUA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4786.9565217391309" y="1020.5357142857142"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="b6v-rb-ap9">
             <objects>
@@ -487,7 +550,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FG9-wO-LxA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4519" y="-301"/>
+            <point key="canvasLocation" x="4507" y="-463"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Gh8-e0-Snu">
@@ -505,7 +568,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UnC-VT-Ftm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5428.985507246377" y="368.97321428571428"/>
+            <point key="canvasLocation" x="5058" y="231"/>
         </scene>
         <!--즐겨찾기-->
         <scene sceneID="rBD-a1-nbs">

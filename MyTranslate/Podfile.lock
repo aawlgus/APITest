@@ -1,16 +1,20 @@
 PODS:
   - Alamofire (5.4.1)
+  - naveridlogin-sdk-ios (4.1.3)
 
 DEPENDENCIES:
   - Alamofire (~> 5.2)
+  - naveridlogin-sdk-ios
 
 SPEC REPOS:
   trunk:
     - Alamofire
+    - naveridlogin-sdk-ios
 
 SPEC CHECKSUMS:
   Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
+  naveridlogin-sdk-ios: b9d7c20677981177ed994ecb1c8c2b49f223277d
 
-PODFILE CHECKSUM: cfb75439af0f3627e7f322e70327dd1ff3a7e8ce
+PODFILE CHECKSUM: 823f923c561f908dbf1b43f13562ef430b0f3764
 
 COCOAPODS: 1.10.1

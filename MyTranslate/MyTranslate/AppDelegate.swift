@@ -7,14 +7,23 @@
 
 import UIKit
 import CoreData
+import NaverThirdPartyLogin
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-
+    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        let instance = NaverThirdPartyLoginConnection.getSharedInstance()
+        instance?.isInAppOauthEnable = true // SafariViewController에서 인증하는 방식 활성화
+        instance?.isOnlyPortraitSupportedInIphone() // 인증화면을 iPhone의 세로 모드에서만 사용하기
+        
+        // 네아로 설정
+        instance?.serviceUrlScheme = kServiceAppUrlScheme
+        instance?.consumerKey = kConsumerKey
+        instance?.consumerSecret = kConsumerSecret
+        instance?.appName = kServiceAppName
+        
         return true
     }
 
@@ -76,6 +85,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        NaverThirdPartyLoginConnection.getSharedInstance()?.application(app, open: url, options: options)
+        return true
+      }
 
 }
 

@@ -29,6 +29,7 @@ class MainTableViewController: UITableViewController {
         let tgtlang = ud.string(forKey: "targetLang")!
         self.targetLang = changeLangType(lang: tgtlang)
         
+        self.englishTextView.text = nil
         guard let query = koreanTextView.text else {return}
         self.koreanTextView.resignFirstResponder()
         

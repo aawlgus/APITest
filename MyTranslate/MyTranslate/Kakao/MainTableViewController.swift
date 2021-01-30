@@ -22,8 +22,16 @@ class MainTableViewController: UITableViewController {
     var targetLang: String = "en"
    
     @IBAction func translate(_ sender: Any) {
+        
+        let ud = UserDefaults.standard
+        let srclang = ud.string(forKey: "searchLang")!
+        self.searchLang = changeLangType(lang: srclang)
+        let tgtlang = ud.string(forKey: "targetLang")!
+        self.targetLang = changeLangType(lang: tgtlang)
+        
         guard let query = koreanTextView.text else {return}
-        self.englishTextView.text = ""
+        self.koreanTextView.resignFirstResponder()
+        
         let urlString = "https://dapi.kakao.com/v2/translation/translate?query=\(query)&src_lang=\(searchLang)&target_lang=\(targetLang)"
         let urlWithPercentEscapes = urlString.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!
         let url = URL(string: urlWithPercentEscapes)
@@ -37,6 +45,7 @@ class MainTableViewController: UITableViewController {
         let task = session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
             if let e = error {
                 NSLog("An error has occurred: \(e.localizedDescription)")
+                self.alert(message: "에러가 발생했습니다.")
                 return
             }
             guard let data = data, let response = response as? HTTPURLResponse, response.statusCode == 200 else {
@@ -54,12 +63,21 @@ class MainTableViewController: UITableViewController {
                     for line in list {
                         print(line)
                         DispatchQueue.main.async {
-                            self.englishTextView.text += "\(line[0]) \n"
+                            if line == [] {
+                                print("no data")
+                                self.alert(message: "입력값이 존재하지 않습니다.")
+                            } else if list == Optional([["."]]) {
+                                self.alert(message: "입력값이 존재하지 않습니다.")
+                            }
+                            else {
+                                self.englishTextView.text += "\(line[0]) \n"
+                            }
                         }
                     }
                 }
             } catch {
                 print(error.localizedDescription)
+                self.alert(message: "입력값이 존재하지 않습니다.")
             }
             
             
@@ -96,10 +114,12 @@ class MainTableViewController: UITableViewController {
     @IBAction func translateByAlamofire(_ sender: Any) {
         
         let ud = UserDefaults.standard
-        let lang = ud.string(forKey: "searchLang")!
-        self.searchLang = changeLangType(lang: lang)
-        print(searchLang)
+        let srclang = ud.string(forKey: "searchLang")!
+        self.searchLang = changeLangType(lang: srclang)
+        let tgtlang = ud.string(forKey: "targetLang")!
+        self.targetLang = changeLangType(lang: tgtlang)
         
+        self.englishTextView.text = nil
         guard let query = koreanTextView.text else {return}
         self.koreanTextView.resignFirstResponder()
         let url = "https://dapi.kakao.com/v2/translation/translate"
@@ -121,6 +141,8 @@ class MainTableViewController: UITableViewController {
                             DispatchQueue.main.async {
                                 if line == [] {
                                     print("no data")
+                                    self.alert(message: "입력값이 존재하지 않습니다.")
+                                } else if list == Optional([["."]]) {
                                     self.alert(message: "입력값이 존재하지 않습니다.")
                                 } else {
                                     self.englishTextView.text += "\(line[0]) \n"
@@ -155,9 +177,10 @@ class MainTableViewController: UITableViewController {
         print(#function)
         
         let ud = UserDefaults.standard
-        let lang = ud.string(forKey: "searchLang")
-        self.searchLangBtn.setTitle(lang, for: .normal)
-        self.targetLangBtn.setTitle(targetLang, for: .normal)
+        let srclang = ud.string(forKey: "searchLang")
+        let tgtlang = ud.string(forKey: "targetLang")
+        self.searchLangBtn.setTitle(srclang, for: .normal)
+        self.targetLangBtn.setTitle(tgtlang, for: .normal)
     }
 
     // MARK: - Table view data source
@@ -220,7 +243,7 @@ extension MainTableViewController: UITextViewDelegate {
     func changeLangType(lang:String) -> String {
         var resultLang: String?
         if lang == "한국어" {
-            resultLang = "ko"
+            resultLang = "kr"
         } else if lang == "영어" {
             resultLang = "en"
         } else if lang == "일본어" {

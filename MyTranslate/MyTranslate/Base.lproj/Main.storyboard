@@ -52,7 +52,7 @@
                                                         <color key="titleColor" systemColor="labelColor"/>
                                                     </state>
                                                     <connections>
-                                                        <segue destination="hS8-CD-Vcr" kind="presentation" id="kNq-3v-hkz"/>
+                                                        <segue destination="hS8-CD-Vcr" kind="presentation" modalPresentationStyle="fullScreen" id="kNq-3v-hkz"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -254,11 +254,11 @@
             <objects>
                 <viewController storyboardIdentifier="TargetVC" id="BOy-Dt-Inh" customClass="TargetLangViewController" customModule="MyTranslate" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7ZT-c8-B5l">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SkQ-cg-Km3">
-                                <rect key="frame" x="0.0" y="56" width="414" height="752"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="targetCell" textLabel="N8b-bV-ys0" style="IBUITableViewCellStyleDefault" id="IHO-SR-9Jb">
@@ -308,7 +308,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dic-jH-qxx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5241" y="369"/>
+            <point key="canvasLocation" x="6150.7246376811599" y="368.97321428571428"/>
         </scene>
         <!--Papago Test-->
         <scene sceneID="lKY-yS-m6H">
@@ -390,7 +390,7 @@
         <scene sceneID="eV3-OT-Arc">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6sd-wV-xdP" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="홈" image="house" catalog="system" id="lj9-jw-wN3"/>
+                    <tabBarItem key="tabBarItem" title="홈" image="house" catalog="system" selectedImage="house.fill" id="lj9-jw-wN3"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="mTP-35-UBz">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -417,11 +417,41 @@
                     </tabBar>
                     <connections>
                         <segue destination="6sd-wV-xdP" kind="relationship" relationship="viewControllers" id="hhT-ay-5DU"/>
+                        <segue destination="rIp-Mv-F7p" kind="relationship" relationship="viewControllers" id="omZ-93-yON"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kmu-bR-H2P" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1761" y="84"/>
+            <point key="canvasLocation" x="1761" y="711"/>
+        </scene>
+        <!--저장된 번역-->
+        <scene sceneID="d86-67-w8p">
+            <objects>
+                <tableViewController id="Vny-QK-mCT" customClass="SavedTableViewController" customModule="MyTranslate" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="fmk-8x-gNC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="yZs-kE-kht">
+                                <rect key="frame" x="0.0" y="28" width="414" height="50"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yZs-kE-kht" id="bIT-U5-dqx">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Vny-QK-mCT" id="Xu6-zL-o0v"/>
+                            <outlet property="delegate" destination="Vny-QK-mCT" id="zDt-uJ-eU0"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="저장된 번역" id="J0P-Ar-p3O"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jdm-kh-V8g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3581.1594202898555" y="947.54464285714278"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="b6v-rb-ap9">
@@ -465,7 +495,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hS8-CD-Vcr" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="PSR-w6-4Qu">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -475,14 +505,36 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UnC-VT-Ftm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4518.840579710145" y="368.97321428571428"/>
+            <point key="canvasLocation" x="5428.985507246377" y="368.97321428571428"/>
+        </scene>
+        <!--즐겨찾기-->
+        <scene sceneID="rBD-a1-nbs">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rIp-Mv-F7p" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="즐겨찾기" image="star" catalog="system" selectedImage="star.fill" id="CBN-uH-qcB"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Muk-Lb-QBA">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Vny-QK-mCT" kind="relationship" relationship="rootViewController" id="MNP-Ex-LTk"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H0l-nz-ow0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2671.0144927536235" y="947.54464285714278"/>
         </scene>
     </scenes>
     <resources>
         <image name="arrow.right" catalog="system" width="128" height="98"/>
         <image name="house" catalog="system" width="128" height="106"/>
+        <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="person.circle" catalog="system" width="128" height="121"/>
         <image name="speaker" catalog="system" width="128" height="124"/>
+        <image name="star" catalog="system" width="128" height="116"/>
+        <image name="star.fill" catalog="system" width="128" height="116"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

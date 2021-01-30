@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		59B670D325C5482000929A0F /* SavedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B670D225C5482000929A0F /* SavedTableViewController.swift */; };
 		59D736F225C17E0200B3CC78 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D736F125C17E0200B3CC78 /* Model.swift */; };
 		59D7375E25C3D77D00B3CC78 /* SrcLangViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D7375D25C3D77D00B3CC78 /* SrcLangViewController.swift */; };
 		59D7376225C3E1FD00B3CC78 /* TargetLangViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D7376125C3E1FD00B3CC78 /* TargetLangViewController.swift */; };
@@ -24,6 +25,7 @@
 
 /* Begin PBXFileReference section */
 		199B9496784515F0171659BE /* Pods_MyTranslate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyTranslate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		59B670D225C5482000929A0F /* SavedTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedTableViewController.swift; sourceTree = "<group>"; };
 		59D736F125C17E0200B3CC78 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		59D7375D25C3D77D00B3CC78 /* SrcLangViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SrcLangViewController.swift; sourceTree = "<group>"; };
 		59D7376125C3E1FD00B3CC78 /* TargetLangViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetLangViewController.swift; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 				59E4CFC025C04C7200C4BC7B /* MainTableViewController.swift */,
 				59D7375D25C3D77D00B3CC78 /* SrcLangViewController.swift */,
 				59D7376125C3E1FD00B3CC78 /* TargetLangViewController.swift */,
+				59B670D225C5482000929A0F /* SavedTableViewController.swift */,
 			);
 			path = Kakao;
 			sourceTree = "<group>";
@@ -242,6 +245,7 @@
 				59D736F225C17E0200B3CC78 /* Model.swift in Sources */,
 				59E4CFC525C1205800C4BC7B /* PapagoViewController.swift in Sources */,
 				59F4B11F25C003BB0001D742 /* MyTranslate.xcdatamodeld in Sources */,
+				59B670D325C5482000929A0F /* SavedTableViewController.swift in Sources */,
 				59F4B11525C003BB0001D742 /* AppDelegate.swift in Sources */,
 				59E4CFC125C04C7200C4BC7B /* MainTableViewController.swift in Sources */,
 				59F4B11725C003BB0001D742 /* SceneDelegate.swift in Sources */,

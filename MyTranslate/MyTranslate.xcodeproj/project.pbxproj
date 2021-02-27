@@ -21,6 +21,7 @@
 		59F4B11F25C003BB0001D742 /* MyTranslate.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 59F4B11D25C003BB0001D742 /* MyTranslate.xcdatamodeld */; };
 		59F4B12125C003BE0001D742 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 59F4B12025C003BE0001D742 /* Assets.xcassets */; };
 		59F4B12425C003BE0001D742 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59F4B12225C003BE0001D742 /* LaunchScreen.storyboard */; };
+		59F8879625EA737500B9BA07 /* KakaoKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F8879525EA737500B9BA07 /* KakaoKey.swift */; };
 		CBC1666821B0C12C027B9A69 /* Pods_MyTranslate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 199B9496784515F0171659BE /* Pods_MyTranslate.framework */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +43,7 @@
 		59F4B12025C003BE0001D742 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		59F4B12325C003BE0001D742 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		59F4B12525C003BE0001D742 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		59F8879525EA737500B9BA07 /* KakaoKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoKey.swift; sourceTree = "<group>"; };
 		6F3FD9FAC05D21A00FDE23A8 /* Pods-MyTranslate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyTranslate.debug.xcconfig"; path = "Target Support Files/Pods-MyTranslate/Pods-MyTranslate.debug.xcconfig"; sourceTree = "<group>"; };
 		ADF93104B783D08DC2FB3372 /* Pods-MyTranslate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyTranslate.release.xcconfig"; path = "Target Support Files/Pods-MyTranslate/Pods-MyTranslate.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -101,6 +103,7 @@
 		59F4B11325C003BB0001D742 /* MyTranslate */ = {
 			isa = PBXGroup;
 			children = (
+				59F8879425EA734F00B9BA07 /* Secret */,
 				59E4CFCB25C129C200C4BC7B /* Kakao */,
 				59E4CFC325C1203800C4BC7B /* Papago */,
 				59F4B11425C003BB0001D742 /* AppDelegate.swift */,
@@ -112,6 +115,14 @@
 				59F4B11D25C003BB0001D742 /* MyTranslate.xcdatamodeld */,
 			);
 			path = MyTranslate;
+			sourceTree = "<group>";
+		};
+		59F8879425EA734F00B9BA07 /* Secret */ = {
+			isa = PBXGroup;
+			children = (
+				59F8879525EA737500B9BA07 /* KakaoKey.swift */,
+			);
+			path = Secret;
 			sourceTree = "<group>";
 		};
 		62F62D3D298CB40DE0A04BFE /* Pods */ = {
@@ -254,6 +265,7 @@
 				59F4B11725C003BB0001D742 /* SceneDelegate.swift in Sources */,
 				59D7376225C3E1FD00B3CC78 /* TargetLangViewController.swift in Sources */,
 				59E4CFC925C1206900C4BC7B /* PapagoResultViewController.swift in Sources */,
+				59F8879625EA737500B9BA07 /* KakaoKey.swift in Sources */,
 				59D7375E25C3D77D00B3CC78 /* SrcLangViewController.swift in Sources */,
 				59B670DB25C5615300929A0F /* LoginViewController.swift in Sources */,
 			);

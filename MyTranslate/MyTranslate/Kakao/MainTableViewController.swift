@@ -10,7 +10,7 @@ import Alamofire
 
 class MainTableViewController: UITableViewController {
     
-    let apiKey = "898e6b6efa37d9a20f92d0dd6903889c"
+    let apiKey = KakaoKey.KAKAO_KEY
     
     @IBOutlet weak var koreanTextView: UITextView!
     @IBOutlet weak var englishTextView: UITextView!
